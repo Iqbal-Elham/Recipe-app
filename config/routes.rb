@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     get '/users/logout', to: 'devise/sessions#destroy', as: :logout
   end
   devise_for :users
-  resources :recipes, except: %i[edit update]
+  resources :recipes, except: %i[edit update] do
+    resources :recipes_foods, only: %i[new create]
+  end
+  get '/recipe_visibility/:id', to: 'recipes#toggle_visibility', as: :visibility
   resources :foods, except: %i[show edit update]
 end

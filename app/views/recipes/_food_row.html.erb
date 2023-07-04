@@ -1,0 +1,12 @@
+<tr id="<%= dom_id food %>">
+  <td><%= food.name %></td>
+
+  <td><%= food.quantity %></td>
+
+  <td>$<%= food.quantity * food.price %></td>
+
+  <td class="d-flex ">
+    <a class="d-inline-block" style="cursor:pointer; margin-right:1rem;">Modify</a>
+    <a class="d-inline-block" style="cursor:pointer" >Remove</a>
+  </td>
+</tr>

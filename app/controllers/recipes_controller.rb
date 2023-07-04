@@ -22,6 +22,18 @@ class RecipesController < ApplicationController
     end
   end
 
+  def toggle_visibility
+    @recipe = Recipe.find(params[:id])
+    @recipe.public = !@recipe.public
+    @recipe.save
+
+    redirect_to request.referrer
+  end
+
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
