@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="text-center mb-5">Recipes</h1>
+
+<div id="recipes" class="container-fluid w-75">
+<%= link_to "+Add a new recipe", new_recipe_path, class: "btn btn-primary mb-2" %>
+  <% @recipes.each do |recipe| %>
+    <%= render recipe %>
+  <% end %>
+</div>
+
