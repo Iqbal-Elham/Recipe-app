@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   # before_action :set_recipe, only: %i[show destroy]
+  before_action :authenticate_user!, only: %i[show toggle_visibility]
   # include RecipesHelper
 
   def index
@@ -24,14 +25,22 @@ class RecipesController < ApplicationController
 
   def toggle_visibility
     @recipe = Recipe.find(params[:id])
-    @recipe.public = !@recipe.public
-    @recipe.save
+    if @recipe.user == current_user
+      @recipe.public = !@recipe.public
+      @recipe.save
+    else
+      flash[:notice] = 'Only owner can update visibility'
+    end
 
     redirect_to request.referrer
   end
 
   def show
     @recipe = Recipe.find(params[:id])
+    return if @recipe.user == current_user || @recipe.public
+
+    flash[:notice] = 'The recipe is not public nor yours'
+    redirect_to recipes_path
   end
 
   def destroy
