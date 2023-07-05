@@ -1,0 +1,18 @@
+<div id="<%= dom_id recipe %>" class="d-flex border border-5 border-warning rounded rounded-3  p-5 gap-5 align-items-baseline mb-5">
+  
+  <div ">
+  <h2 class="mb-5"><%= recipe.name %></h2>
+  <%= button_to "Remove", recipe, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+  </div>
+
+  <div>
+  <p>
+    <h3>Description:</h3>
+    <%= recipe.description %>
+  </p>
+  <p class="text-right" >
+    <%= link_to "More Details", recipe, class: "btn btn-info text-light" %>
+  </p>
+  </div>
+
+</div>
