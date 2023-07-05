@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   # before_action :set_recipe, only: %i[show destroy]
   # include RecipesHelper
-  
+
   def index
     @recipes = Recipe.where(user_id: current_user.id)
     # @recipes = Recipe.all
