@@ -9,7 +9,6 @@ RSpec.describe 'Foods', type: :feature do
     login_as(@user, scope: :user)
   end
 
-
   describe 'Foods CRUD' do
     it 'displays the list of foods' do
       visit foods_path
