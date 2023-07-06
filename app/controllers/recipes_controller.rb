@@ -76,7 +76,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(recipes_foods: [:food]).find(params[:id])
     return if @recipe.user == current_user || @recipe.public
 
     flash[:notice] = 'The recipe is not public nor yours'

@@ -45,7 +45,7 @@
     </thead>
     <tbody>
       <% @recipe.recipes_foods.each do |recipes_food| %>
-       <%= render partial: 'food_row', locals: { recipes_food: recipes_food } %> <% end %>
+       <%= render partial: 'food_row', locals: { recipes_food: recipes_food, extended:true } %> <% end %>
     </tbody>
   </table>
 </div>
