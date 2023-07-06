@@ -90,6 +90,10 @@ class RecipesController < ApplicationController
     redirect_to request.referrer
   end
 
+  def public_recipes
+    @public_recipes = Recipe.where(public: true).includes(:user).order(created_at: :desc)
+  end
+
   def recipe_params
     params.require(:recipe).permit(:name, :description, :prepation_time, :cooking_time, :public)
   end
