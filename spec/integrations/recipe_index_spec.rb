@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Integration tests for the recipes index view', type: :feature do
-    include Devise::Test::IntegrationHelpers
+  include Devise::Test::IntegrationHelpers
   before(:each) do
     @user = User.create(name: 'iqbal', email: 'iqbal@gmail.com', password: '123456')
     @recipe = Recipe.create(name: 'Kabab', description: 'A delicious food', user_id: @user.id)
@@ -10,7 +10,6 @@ RSpec.describe 'Integration tests for the recipes index view', type: :feature do
   end
 
   describe 'GET /index' do
-
     it 'should render the title of the page' do
       expect(page).to have_content('Recipes')
     end
