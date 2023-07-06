@@ -4,6 +4,10 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
 <div class="container-fluid w-50">
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
     <div class="field form-group">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
