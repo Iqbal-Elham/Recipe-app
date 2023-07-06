@@ -3,14 +3,11 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "recipes#public_recipes"
   
-  devise_scope :user do
-    get '/users/logout', to: 'devise/sessions#destroy', as: :logout
-  end
   devise_for :users
   resources :recipes, except: %i[edit update]
 
-  get '/public_recipes', to: 'recipes#public_recipes'
+  # get '/public_recipes', to: 'recipes#public_recipes'
 
 end
