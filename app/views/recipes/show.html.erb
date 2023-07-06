@@ -29,7 +29,7 @@
   <div class="w-50 d-flex justify-content-between align-items-center">
     <button class="btn btn-info">Generate shopping list</button>
     <% if current_user == @recipe.user %>
-    <%= link_to "Add ingredient", new_recipe_recipes_food_path(@recipe.id),class:"btn btn-info" %>
+    <%= link_to "Add ingredient", edit_recipe_path(@recipe.id),class:"btn btn-info" %>
     <%end%>
   </div>
 
@@ -44,8 +44,8 @@
       </tr>
     </thead>
     <tbody>
-      <% @recipe.foods.each do |food| %>
-       <%= render partial: 'food_row', locals: { food: food } %> <% end %>
+      <% @recipe.recipes_foods.each do |recipes_food| %>
+       <%= render partial: 'food_row', locals: { recipes_food: recipes_food } %> <% end %>
     </tbody>
   </table>
 </div>
