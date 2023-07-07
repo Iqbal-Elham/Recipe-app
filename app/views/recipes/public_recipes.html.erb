@@ -11,11 +11,11 @@
   <div>
   <div class="d-flex align-items-center gap-4">
     <h4>Total food items: </h4>
-    <%= recipe.description %>
+    <%= recipe.recipes_foods.count %>
   </div>
   <div class="d-flex align-items-center gap-4">
     <h4>Total Price: </h4>
-    <%= recipe.description %>
+    $<%= recipe.recipes_foods.sum { |food| food.quantity * food.food.price } %>
   </div>
   <p class="mt-3" >
     <%= link_to "More Details", recipe, class: "btn btn-info text-light" %>
