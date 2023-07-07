@@ -110,9 +110,9 @@ Example command:
 
 <!-- AUTHORS -->
 
-## 👥 Author <a name="authors"></a>
+## 👥 Authors <a name="authors"></a>
 
-👤 **Bahir Hakimi**
+👤 **Iqbal Elham**
 
 - <a href='https://www.linkedin.com/in/iqbal-elham/' target="_blank"><img alt='LinkedIn' src='https://img.shields.io/badge/iqbal_elham-100000?style=flat&logo=LinkedIn&logoColor=white&labelColor=0099FF&color=0099FF'/></a>
 - <a href='mailto:iqbal.elham7@gmail.com' target="_blank"><img alt='Gmail' src='https://img.shields.io/badge/iqbal_elham-100000?style=flat&logo=Gmail&logoColor=FFFFFF&labelColor=FF2C10&color=FF2C10'/></a>
