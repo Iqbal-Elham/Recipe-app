@@ -1,0 +1,23 @@
+
+<div class="d-flex flex-column">
+
+<%= link_to "Add food", new_food_path, class:'btn btn-primary w-25 align-self-end mt-2 mb-2'%>
+
+<table class="table table-striped">
+  <thead >
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Measurement Unit</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+   <tbody>
+  <% @foods.each do |food| %>
+    <%= render food %>
+  <% end %>
+  </tbody>
+</table>
+
+</div>

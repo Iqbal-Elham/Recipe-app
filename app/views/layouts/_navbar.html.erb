@@ -1,0 +1,24 @@
+<header>
+  <nav class="bg-dark p-3 rounded-bottom">
+    <div class="d-flex justify-content-around align-items-center">
+      <%= link_to "Recipe App", root_path, class: "text-decoration-none h3 text-warning" %>
+     
+        <div class="d-flex align-items-center gap-3">
+        <%= link_to "Public Recipes", root_path, class:"text-decoration-none text-light" %>
+        <div class="d-flex align-items-center gap-3">
+            <% if current_user %>
+                <%= link_to "Foods", foods_path, class:"text-decoration-none text-light" %>
+                <%= link_to "#{current_user.name}'s recipes", recipes_path, class:"text-decoration-none text-light" %>
+            <div class="">
+                <%= button_to("Log Out", destroy_user_session_path, method: :delete, class: "btn btn-danger text-light") %>
+            </div>
+            <% elsif controller_name != 'sessions' %>
+            <div class="">
+                <%= button_to("Log In", new_user_session_path, method: :get, class: "btn btn-success text-light") %>
+            </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

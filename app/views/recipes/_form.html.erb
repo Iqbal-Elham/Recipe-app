@@ -1,0 +1,45 @@
+<%= form_with(model: recipe) do |form| %>
+  <% if recipe.errors.any? %>
+    <div class="text-danger d-flex flex-column justify-content-center align-items-center">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+        <% recipe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container-fluid w-50">
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control mb-4" %>
+  </div>
+
+  <div>
+    <%= form.label :preparation_time %>
+    <%= form.text_field :preparation_time, class: "form-control mb-4" %>
+  </div>
+
+  <div>
+    <%= form.label :cooking_time %>
+    <%= form.text_field :cooking_time, class: "form-control mb-4" %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "form-control mb-4" %>
+  </div>
+
+  <div>
+    <%= form.label :public %>
+    <%= form.check_box :public , class: "mb-4" %>
+  </div>
+
+  <div>
+  <%= form.submit class: "btn btn-success btn-lg w-100" %>
+</div>
+  </div>
+ 
+<% end %>
