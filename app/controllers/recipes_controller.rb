@@ -43,27 +43,15 @@ class RecipesController < ApplicationController
     @total_value = 0
     @recipes.each do |recipe|
       recipe.recipes_foods.each do |recipes_food|
-        puts '======================================'
-        puts recipes_food
-        puts '+++++++++++++++++++++++++++++++++++++++'
-        puts recipes_food.quantity
-        puts '+++++++++++++++++++++++++++++++++++++++'
-        puts recipes_food.food
-        puts '+++++++++++++++++++++++++++++++++++++++'
-        puts recipes_food.food.quantity
-        puts '======================================'
         if !@foods.include?(recipes_food.food)
           @missing_foods << recipes_food
           @total_value += (recipes_food.food.price * recipes_food.quantity)
-          puts 
-          p @missing_foods
-        elsif (recipes_food.quantity - recipes_food.food.quantity) > 0
+        elsif (recipes_food.quantity - recipes_food.food.quantity).positive?
           @missing_foods << recipes_food
           @total_value += (recipes_food.food.price * (recipes_food.quantity - recipes_food.food.quantity))
         end
       end
     end
-    puts @total_value
     render 'shopping_list'
   end
 
